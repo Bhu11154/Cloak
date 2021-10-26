@@ -4,6 +4,7 @@ import numpy as np
 def empty(x):
     pass
 
+### Getting the HSV Values of the cloak to be used
 
 # cv2.namedWindow("TrackBars")
 # cv2.resizeWindow("TrackBars", 400, 400)
@@ -29,8 +30,10 @@ initial_frame = cv2.resize(initial_frame,(400,400))
 while True:
     _,img = cap.read()
     img = cv2.resize(img,(400,400))
+    
+    ##### Updating the HSV Values using trackbars
+    
     # canny = cv2.Canny(gray, 100,200,apertureSize=3)
-
     # h_min = cv2.getTrackbarPos("Hue Min", "TrackBars")
     # h_max = cv2.getTrackbarPos("Hue Max", "TrackBars")
     # s_min = cv2.getTrackbarPos("Sat Min", "TrackBars")
@@ -38,6 +41,8 @@ while True:
     # v_min = cv2.getTrackbarPos("Val Min", "TrackBars")
     # v_max = cv2.getTrackbarPos("Val Max", "TrackBars")
     # print(h_min, h_max, s_min, s_max, v_min, v_max)
+    
+    
     imgHSV = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
     kernal = np.ones((3,3),np.uint8)
     lower = np.array([94,92,0])
